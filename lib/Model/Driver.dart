@@ -1,45 +1,45 @@
 import 'dart:convert';
 
-Driver driverFromJson(String str) => Driver.fromJson(json.decode(str));
+List<Driver> DriverFromJson(String str) => List<Driver>.from(json.decode(str).map((x) => Driver.fromJson(x)));
 
-String driverToJson(Driver data) => json.encode(data.toJson());
+String DriverToJson(List<Driver> data) => json.encode(List<dynamic>.from(data.map((x) => x.toJson())));
 
 class Driver {
   Driver({
-    this.id,
-    this.firstName,
-    this.lastName,
-    this.license,
-    this.email,
-    this.role,
-    this.roleId,
+    this.conductorId,
+    this.nombre,
+    this.apellido,
+    this.dni,
+    this.direccion,
+    this.celular,
+    this.correo,
   });
 
-  int id;
-  String firstName;
-  String lastName;
-  String license;
-  String email;
-  int role;
-  int roleId;
+  int conductorId;
+  String nombre;
+  String apellido;
+  String dni;
+  String direccion;
+  String celular;
+  String correo;
 
   factory Driver.fromJson(Map<String, dynamic> json) => Driver(
-        id: json["id"],
-        firstName: json["firstName"],
-        lastName: json["lastName"],
-        license: json["license"],
-        email: json["email"],
-        role: json["role"],
-        roleId: json["roleId"],
-      );
+    conductorId: json["conductorId"],
+    nombre: json["nombre"],
+    apellido: json["apellido"],
+    dni: json["dni"],
+    direccion: json["direccion"],
+    celular: json["celular"],
+    correo: json["correo"],
+  );
 
   Map<String, dynamic> toJson() => {
-        "id": id,
-        "firstName": firstName,
-        "lastName": lastName,
-        "license": license,
-        "email": email,
-        "role": role,
-        "roleId": roleId,
-      };
+    "conductorId": conductorId,
+    "nombre": nombre,
+    "apellido": apellido,
+    "dni": dni,
+    "direccion": direccion,
+    "celular": celular,
+    "correo": correo,
+  };
 }

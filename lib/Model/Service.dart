@@ -1,41 +1,41 @@
 import 'dart:convert';
 
-Service serviceFromJson(String str) => Service.fromJson(json.decode(str));
+List<Service> serviceFromJson(String str) => List<Service>.from(json.decode(str).map((x) => Service.fromJson(x)));
 
-String serviceToJson(Service data) => json.encode(data.toJson());
+String serviceToJson(List<Service> data) => json.encode(List<dynamic>.from(data.map((x) => x.toJson())));
 
 class Service {
     Service({
-        this.firstName,
-        this.lastName,
-        this.startedTime,
-        this.finishTime,
-        this.serviceState,
-        this.id,
+        this.servicioId,
+        this.nombre,
+        this.descripcion,
+        this.localId,
+        this.categoriaId,
+        this.promocion,
     });
 
-    String firstName;
-    String lastName;
-    DateTime startedTime;
-    DateTime finishTime;
-    String serviceState;
-    int id;
+    int servicioId;
+    String nombre;
+    String descripcion;
+    int localId;
+    int categoriaId;
+    String promocion;
 
     factory Service.fromJson(Map<String, dynamic> json) => Service(
-        firstName: json["firstName"],
-        lastName: json["lastName"],
-        startedTime: DateTime.parse(json["startedTime"]),
-        finishTime: DateTime.parse(json["finishTime"]),
-        serviceState: json["serviceState"],
-        id: json["id"],
+        servicioId: json["servicioId"],
+        nombre: json["nombre"],
+        descripcion: json["descripcion"],
+        localId: json["localId"],
+        categoriaId: json["categoriaId"],
+        promocion: json["promocion"],
     );
 
     Map<String, dynamic> toJson() => {
-        "firstName": firstName,
-        "lastName": lastName,
-        "startedTime": startedTime.toIso8601String(),
-        "finishTime": finishTime.toIso8601String(),
-        "serviceState": serviceState,
-        "id": id,
+        "servicioId": servicioId,
+        "nombre": nombre,
+        "descripcion": descripcion,
+        "localId": localId,
+        "categoriaId": categoriaId,
+        "promocion": promocion,
     };
 }

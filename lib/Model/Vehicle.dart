@@ -1,33 +1,45 @@
 import 'dart:convert';
 
-Vehicle vehicleFromJson(String str) => Vehicle.fromJson(json.decode(str));
+List<Vehicle> vehicleFromJson(String str) => List<Vehicle>.from(json.decode(str).map((x) => Vehicle.fromJson(x)));
 
-String vehicleToJson(Vehicle data) => json.encode(data.toJson());
+String vehicleToJson(List<Vehicle> data) => json.encode(List<dynamic>.from(data.map((x) => x.toJson())));
 
 class Vehicle {
   Vehicle({
-    this.driver,
-    this.model,
-    this.brand,
-    this.loadingCapacity,
+    this.vehiculoId,
+    this.placa,
+    this.color,
+    this.fechaFabricacion,
+    this.conductorId,
+    this.categoriaId,
+    this.modeloId,
   });
 
-  String driver;
-  String model;
-  String brand;
-  double loadingCapacity;
+  int vehiculoId;
+  String placa;
+  String color;
+  String fechaFabricacion;
+  int conductorId;
+  int categoriaId;
+  int modeloId;
 
   factory Vehicle.fromJson(Map<String, dynamic> json) => Vehicle(
-        driver: json["driver"],
-        model: json["model"],
-        brand: json["brand"],
-        loadingCapacity: json["loadingCapacity"],
-      );
+    vehiculoId: json["vehiculoId"],
+    placa: json["placa"],
+    color: json["color"],
+    fechaFabricacion: json["fechaFabricacion"],
+    conductorId: json["conductorId"],
+    categoriaId: json["categoriaId"],
+    modeloId: json["modeloId"],
+  );
 
   Map<String, dynamic> toJson() => {
-        "driver": driver,
-        "model": model,
-        "brand": brand,
-        "loadingCapacity": loadingCapacity,
-      };
+    "vehiculoId": vehiculoId,
+    "placa": placa,
+    "color": color,
+    "fechaFabricacion": fechaFabricacion,
+    "conductorId": conductorId,
+    "categoriaId": categoriaId,
+    "modeloId": modeloId,
+  };
 }

@@ -21,13 +21,13 @@ class Resource {
         success: json["success"],
         message: json["message"],
         resource: json["resource"],
-        resourceList: List<dynamic>.from(json["resourceList"].map((x) => x)),
+       // resourceList: List<dynamic>.from(json["resourceList"].map((x) => x)),
       );
 
   Map<String, dynamic> toJson() => {
         "success": success,
         "message": message,
         "resource": resource,
-        "resourceList": List<dynamic>.from(resourceList.map((x) => x)),
+        //"resourceList": List<dynamic>.from(resourceList.map((x) => x)),
       };
 }
