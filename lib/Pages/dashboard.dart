@@ -1,10 +1,10 @@
 import 'package:TS_AppsMovil/Model/User.dart';
 import 'package:TS_AppsMovil/Pages/profile_screen.dart';
 import 'package:TS_AppsMovil/Pages/register_screen_fixed.dart';
-import 'package:TS_AppsMovil/Pages/request_list.dart';
-import 'package:TS_AppsMovil/Pages/settings_screen.dart';
-import 'package:TS_AppsMovil/Pages/sub_screen.dart';
-import 'package:TS_AppsMovil/Pages/transaction_view.dart';
+import 'package:TS_AppsMovil/Pages/category_list.dart';
+
+import 'package:TS_AppsMovil/Pages/vehicle_list.dart';
+
 import 'package:TS_AppsMovil/Services/http-service.dart';
 import 'package:TS_AppsMovil/Utils/transitions.dart';
 import 'package:TS_AppsMovil/src/bloc/authentication_bloc/authentication_bloc.dart';
@@ -17,7 +17,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:firebase_auth/firebase_auth.dart' as auth;
 
 import 'driver_list.dart';
-import 'favourite_list.dart';
+import 'company_list.dart';
 
 class Dashboard extends StatefulWidget {
   final UserRepository userRepository;
@@ -70,11 +70,11 @@ class _DashBoard extends State<Dashboard> {
   }
 
   final List<Widget> _navPages = [
-    RequestList(),
+    CategoryList(),
     DriverList(),
-    FavoriteList(),
-    MoneyMovView(),
-    SubView(),
+    CompanyList(),
+
+    VehicleView(),
   ];
 
   checkLoginStatus(String email, String password) async {
@@ -183,27 +183,18 @@ class _DashBoard extends State<Dashboard> {
                       Icon(Icons.credit_card),
                       Text('Comprar créditos'),
                       Icon(Icons.arrow_right),
-                      SettingsScreen()),
+                      ProfileScreen()),
                   CustomDrawTile(
                       Icon(Icons.settings),
                       Text('Configuración de la cuenta'),
                       Icon(Icons.arrow_right),
                       ProfileScreen()),
+
                   CustomDrawTile(
-                      Icon(Icons.monetization_on),
-                      Text('Planes de subscripcion'),
+                      Icon(Icons.car_rental),
+                      Text('Vehículos'),
                       Icon(Icons.arrow_right),
-                      ProfileScreen()),
-                  CustomDrawTile(
-                      Icon(Icons.attach_money),
-                      Text('Transacciones'),
-                      Icon(Icons.arrow_right),
-                      MoneyMovView()),
-                  CustomDrawTile(
-                      Icon(Icons.wysiwyg_sharp),
-                      Text('Subscripciones'),
-                      Icon(Icons.arrow_right),
-                      SubView()),
+                      VehicleView()),
                 ],
               ),
             ),
@@ -211,16 +202,16 @@ class _DashBoard extends State<Dashboard> {
             bottomNavigationBar: BottomNavigationBar(
               items: const <BottomNavigationBarItem>[
                 BottomNavigationBarItem(
-                  icon: Icon(Icons.add_shopping_cart),
-                  title: Text('Cargos'),
+                  icon: Icon(Icons.account_tree_outlined),
+                  title: Text('Categorías'),
                 ),
                 BottomNavigationBarItem(
-                  icon: Icon(Icons.drive_eta),
-                  title: Text('Transportistas'),
+                  icon: Icon(Icons.person),
+                  title: Text('Conductores'),
                 ),
                 BottomNavigationBarItem(
-                  icon: Icon(Icons.grade),
-                  title: Text('Favoritos'),
+                  icon: Icon(Icons.work_outlined),
+                  title: Text('Empresas'),
                 )
               ],
               currentIndex: _currentPage,

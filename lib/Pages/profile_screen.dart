@@ -1,3 +1,4 @@
+
 import 'package:TS_AppsMovil/Model/User.dart';
 import 'package:TS_AppsMovil/Services/http-service.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -133,7 +134,7 @@ class _Profile extends State<ProfileScreen> {
                           child: Column(
                             children: <Widget>[
                               Text(
-                                "Servicios Solicitados",
+                                "Puntos",
                                 textAlign: TextAlign.center,
                                 style: TextStyle(
                                   color: Color(0xff1565c0),
@@ -158,7 +159,7 @@ class _Profile extends State<ProfileScreen> {
                           child: Column(
                             children: <Widget>[
                               Text(
-                                "Conductores Favoritos",
+                                "KM Recorridos",
                                 textAlign: TextAlign.center,
                                 style: TextStyle(
                                   color: Color(0xff1565c0),
@@ -183,7 +184,7 @@ class _Profile extends State<ProfileScreen> {
                           child: Column(
                             children: <Widget>[
                               Text(
-                                "Servicios concretados",
+                                "EXP",
                                 textAlign: TextAlign.center,
                                 style: TextStyle(
                                   color: Color(0xff1565c0),
@@ -229,9 +230,9 @@ class _Profile extends State<ProfileScreen> {
                         CustomRow(Icon(FontAwesomeIcons.signature),
                             Text("Apellidos : "), Text(lastName)),
                         CustomRow(Icon(FontAwesomeIcons.envelope),
-                            Text("Correo : "), Text(lastName)),
+                            Text("Correo : "), Text("doe@gmail.com")),
                         CustomRow(Icon(FontAwesomeIcons.phone),
-                            Text("Telefono : "), Text(lastName)),
+                            Text("Telefono : "), Text("632132")),
                       ],
                     ),
                   ),
@@ -239,106 +240,8 @@ class _Profile extends State<ProfileScreen> {
               ],
             ),
           ),
-          /*Container(
-            child: Padding(
-              padding:
-                  const EdgeInsets.symmetric(vertical: 30.0, horizontal: 16.0),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: <Widget>[
-                  Text(
-                    "Detalles:",
-                    style: TextStyle(
-                        color: Color(0xff1565c0),
-                        fontStyle: FontStyle.normal,
-                        fontSize: 28.0),
-                  ),
-                  SizedBox(
-                    height: 10.0,
-                  ),
-                  Text(
-                    'Nombres : ' + firstName,
-                    style: TextStyle(
-                      fontSize: 16.0,
-                      fontStyle: FontStyle.italic,
-                      fontWeight: FontWeight.w300,
-                      color: Colors.black,
-                      letterSpacing: 2.0,
-                    ),
-                  ),
-                  Text(
-                    'Apellidos : ' + lastName,
-                    style: TextStyle(
-                      fontSize: 16.0,
-                      fontStyle: FontStyle.italic,
-                      fontWeight: FontWeight.w300,
-                      color: Colors.black,
-                      letterSpacing: 2.0,
-                    ),
-                  ),
-                  Text(
-                    'Correo : ' + lastName,
-                    style: TextStyle(
-                      fontSize: 16.0,
-                      fontStyle: FontStyle.italic,
-                      fontWeight: FontWeight.w300,
-                      color: Colors.black,
-                      letterSpacing: 2.0,
-                    ),
-                  ),
-                  Text(
-                    'Telefono : ' + lastName,
-                    style: TextStyle(
-                      fontSize: 16.0,
-                      fontStyle: FontStyle.italic,
-                      fontWeight: FontWeight.w300,
-                      color: Colors.black,
-                      letterSpacing: 2.0,
-                    ),
-                  ),
-                ],
-              ),
-            ),
-          ),*/
-          /*
-          SizedBox(
-            height: 20.0,
-          ),*/
-          /*Container(
-            width: 300.00,
-            child: RaisedButton(
-                onPressed: () {},
-                shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(80.0)),
-                elevation: 0.0,
-                padding: EdgeInsets.all(0.0),
-                child: Ink(
-                  decoration: BoxDecoration(
-                    gradient: LinearGradient(
-                        begin: Alignment.centerRight,
-                        end: Alignment.centerLeft,
-                        colors: [Color(0xff1565c0), Color(0xff1565c0)]),
-                    borderRadius: BorderRadius.circular(30.0),
-                  ),
-                  child: Container(
-                      constraints:
-                          BoxConstraints(maxWidth: 300.0, minHeight: 50.0),
-                      alignment: Alignment.center,
-                      child: GestureDetector(
-                        child: Text(
-                          "Volver",
-                          style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 26.0,
-                              fontWeight: FontWeight.w300),
-                        ),
-                        onTap: () {
-                          Navigator.pop(context);
-                        },
-                      )),
-                )),
-          ),*/
+
+
         ],
       ),
     );

@@ -1,9 +1,10 @@
+import 'package:TS_AppsMovil/Model/Driver.dart';
 import 'package:TS_AppsMovil/Services/http-service.dart';
 import 'package:TS_AppsMovil/Utils/utils.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-import '../Model/User.dart';
+
 
 class DriverList extends StatefulWidget {
   @override
@@ -12,9 +13,9 @@ class DriverList extends StatefulWidget {
 
 class _DriverList extends State<DriverList> {
   final HttpService httpService = HttpService();
-  List<User> drivers;
+  List<Driver> drivers;
 
-  Future<List<User>> getDrivers() async {
+  Future<List<Driver>> getDrivers() async {
     this.drivers = await httpService.getDrivers();
     return this.drivers;
   }
@@ -37,17 +38,17 @@ class _DriverList extends State<DriverList> {
                   child: DataTable(
                     columns: [
                       DataColumn(
-                          label: Text('Nombres'),
-                          tooltip: 'represents first name of the user'),
+                          label: Text('Nombre'),
+                          tooltip: ''),
                       DataColumn(
-                          label: Text('Apellidos'),
-                          tooltip: 'represents last name of the user'),
+                          label: Text('Apellido'),
+                          tooltip: ''),
                       DataColumn(
-                          label: Text('Vehiculo'),
-                          tooltip: 'represents email address of the user'),
+                          label: Text('Celular'),
+                          tooltip: ''),
                       DataColumn(
-                          label: Text('Phone'),
-                          tooltip: 'represents phone number of the user'),
+                          label: Text('Email'),
+                          tooltip: ''),
                     ],
                     rows: this
                         .drivers
@@ -66,11 +67,11 @@ class _DriverList extends State<DriverList> {
 
                                   DataCell(
                                     customRowDataIcon(
-                                        Icons.person, data.firstName),
+                                        Icons.person, data.nombre),
                                   ),
-                                  DataCell(Text(data.lastName)),
-                                  DataCell(Text(data.email)),
-                                  DataCell(Text(data.lastName)),
+                                  DataCell(Text(data.apellido)),
+                                  DataCell(Text(data.celular)),
+                                  DataCell(Text(data.correo)),
                                 ]))
                         .toList(),
                   ),
