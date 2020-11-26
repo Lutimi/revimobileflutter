@@ -116,7 +116,7 @@ class GoogleLoginButton extends StatelessWidget {
             CircularProgressIndicator(),
           ],
         )));
-        BlocProvider.of<LoginBloc>(context).add(LoginWithGooglePressed());
+
       },
     );
   }
@@ -130,7 +130,7 @@ class FacebookLoginButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return FacebookSignInButton(onPressed: () {
-      BlocProvider.of<LoginBloc>(context).add(LoginWithFacebookPressed());
+
     });
   }
 }
