@@ -44,12 +44,7 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
     if (event is PasswordChanged) {
       yield* _mapPasswordChangedToState(event.password);
     }
-    if (event is LoginWithGooglePressed) {
-      yield* _mapLoginWithGooglePressedToState();
-    }
-    if (event is LoginWithFacebookPressed) {
-      yield* _mapLoginWithFacebookPressedToState();
-    }
+
     if (event is LoginWithCredentialsPressed) {
       yield* _mapLoginWithCredentialsPressedToState(
           email: event.email, password: event.password);
@@ -64,23 +59,7 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
     yield state.update(isPasswordValid: Validators.isValidPassword(password));
   }
 
-  Stream<LoginState> _mapLoginWithGooglePressedToState() async* {
-    try {
-      await _userRepository.signInWithGoogle();
-      yield LoginState.success();
-    } catch (e) {
-      yield LoginState.failure();
-    }
-  }
 
-  Stream<LoginState> _mapLoginWithFacebookPressedToState() async* {
-    try {
-      await _userRepository.signInWithFacebook();
-      yield LoginState.success();
-    } catch (e) {
-      yield LoginState.failure();
-    }
-  }
 
   Stream<LoginState> _mapLoginWithCredentialsPressedToState(
       {String email, String password}) async* {

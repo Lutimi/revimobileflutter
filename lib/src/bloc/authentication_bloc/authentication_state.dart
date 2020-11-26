@@ -7,10 +7,6 @@ abstract class AuthenticationState extends Equatable {
   List<Object> get props => [];
 }
 
-// Tres estados:
-// No inicializado -> splash screen
-// Autenticado -> Home
-// No autenticado -> Login
 
 class Uninitialized extends AuthenticationState{
   @override
